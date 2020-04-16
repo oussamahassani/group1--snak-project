@@ -78,6 +78,9 @@ function scoree() {
         console.log("score", 6);
 }
 console.log(s);
+
+
+// by Ghassen
 let d;
 
 document.addEventListener("keydown", direction);
@@ -106,6 +109,11 @@ function direction(event) {
 
     }
 
+
+
+
+    // end ghassen
+    
 
     scoree()
 }
