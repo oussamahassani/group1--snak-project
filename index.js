@@ -67,3 +67,24 @@ if (snakeX < boxx || snakeX > 58 * boxx || snakeY < boxy || snakeY > 18 * boxy |
   alert("game over")
   clearInterval(game);
 }
+
+//control the snake 
+let d;
+
+document.addEventListener("keydown",direction);
+
+function direction(event){
+    let key = event.keyCode;
+    if( key == 37 && d != "RIGHT"){
+        d = "LEFT";
+    }else if(key == 38 && d != "DOWN"){
+        d = "UP";
+    }else if(key == 39 && d != "LEFT"){
+        d = "RIGHT";
+    }else if(key == 40 && d != "UP"){
+        d = "DOWN";
+    }
+}
+
+// hello 
+
