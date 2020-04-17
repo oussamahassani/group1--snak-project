@@ -1,4 +1,8 @@
 
+var game;
+
+
+
 const cvs = document.getElementById("myCanvas");
 cvs.style.display = "none";
 buttonstop = document.createElement("button");
@@ -80,7 +84,9 @@ function scoree() {
 console.log(s);
 
 
+
 // by Ghassen
+
 let d;
 
 document.addEventListener("keydown", direction);
@@ -110,9 +116,8 @@ function direction(event) {
     }
 
 
-
-
     // end ghassen
+
     
 
     scoree()
@@ -172,16 +177,28 @@ function draw() {
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
     // attribuer les cordonner de x et y
+    if( d == "LEFT") {snakeX -= box;}   
+    if( d == "UP") { snakeY -= box; }       
+    if( d == "RIGHT") {snakeX += box;}
+    if( d == "DOWN") {snakeY += box;}
+   
+    
+    
+
+    if (snakeX < box)
+{
+nakeX = 36 * box;
+}
+if (snakeX > 36*box)
+{
+nakeX =  2*box;
+  }
+
+
     if (d == "LEFT") { snakeX -= box; }
     if (d == "UP") { snakeY -= box; }
     if (d == "RIGHT") { snakeX += box; }
     if (d == "DOWN") { snakeY += box; }
-
-
-
-
-
-
 
 
 
@@ -226,6 +243,12 @@ function draw() {
     //
     // game over :(Manel)
     let lastscore = localStorage.getItem("lastscore");
+
+    if( snakeY < 3*box || snakeY > 34 * box || collision(newHead,snake)){
+
+    if(snakeX < box || snakeX > 36 * box  ||  snakeY < 3*box || snakeY > 34 * box || collision(newHead,snake)){
+
+=======
     if (snakeX < box || snakeX > 36 * box || snakeY < 3 * box || snakeY > 34 * box || collision(newHead, snake)) {
         clearInterval(game);
         more.play();
@@ -274,10 +297,34 @@ function draw() {
 
 }
 
+function call ()
+{ 
+   if (score <= 6)
+{    a = 800;
+    clearInterval(game);
+    game =setInterval(draw,a);
+    console.log(game);
+} if( score > 6 && score< 14)
+{
+    clearInterval(game);
+    game =setInterval(draw,600);
+    console.log(1);
+}
+ 
+ 
+}
+call();
+function facile()
 
-
-game = setInterval(draw, s);
-
+{  
+    clearInterval(game);
+    game =setInterval(draw,500);
+}
+function hard()
+{ 
+    clearInterval(game);
+    game =setInterval(draw,100);
+}
 
 
 
