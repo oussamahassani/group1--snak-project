@@ -1,4 +1,8 @@
+
 var game;
+
+
+
 const cvs = document.getElementById("myCanvas");
 cvs.style.display ="none";
 buttonstop = document.createElement("button");
@@ -81,6 +85,11 @@ function scoree()
       console.log("score" ,6);
 }
 console.log(s);
+
+
+
+// by Ghassen
+
 let d;
 
 document.addEventListener("keydown",direction);
@@ -108,7 +117,12 @@ function direction(event){
     
        
     }
+
     
+
+
+    // end ghassen
+
     
     scoree()
 }
@@ -174,6 +188,7 @@ function draw(){
    
     
     
+
     if (snakeX < box)
 {
 nakeX = 36 * box;
@@ -182,7 +197,8 @@ if (snakeX > 36*box)
 {
 nakeX =  2*box;
   }
-   
+
+
     
     
    
@@ -230,7 +246,11 @@ nakeX =  2*box;
      //
     // game over
     let lastscore = localStorage.getItem("lastscore");
+
     if( snakeY < 3*box || snakeY > 34 * box || collision(newHead,snake)){
+
+    if(snakeX < box || snakeX > 36 * box  ||  snakeY < 3*box || snakeY > 34 * box || collision(newHead,snake)){
+
         clearInterval(game);
         more.play();
  c.style = "display: block";
@@ -279,6 +299,7 @@ nakeX =  2*box;
    
 }
    
+
 function call ()
 { 
    if (score <= 6)
@@ -307,6 +328,11 @@ function hard()
     clearInterval(game);
     game =setInterval(draw,100);
 }
+=======
+
+
+game =setInterval(draw,s);
+
   
 
 
